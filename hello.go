@@ -1,4 +1,4 @@
-package main
+package fallsolo
 
 import "fmt"
 
