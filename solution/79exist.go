@@ -1,12 +1,5 @@
 package solution
 
-var dir = [][]int{
-	{-1, 0},
-	{0, 1},
-	{1, 0},
-	{0, -1},
-}
-
 //回溯 dfs o(MN3^L) omn
 func exist(board [][]byte, word string) bool {
 	h, w := len(board), len(board[0])

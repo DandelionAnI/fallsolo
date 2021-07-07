@@ -17,3 +17,10 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+var dir = [][]int{
+	{-1, 0},
+	{0, 1},
+	{1, 0},
+	{0, -1},
+}
