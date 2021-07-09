@@ -1,11 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	."solution/solution"
+)
 
 func main() {
-	list := []string{"haha", "xixi"}
+	//list := []string{"haha", "xixi"}
 
-	pri := fmt.Sprintf("%q", list)
+	ans := LengthOfLongestSubstring("aaaaawwbwexxx") 
 
-	fmt.Println("%s" + pri)
+	fmt.Println(ans)
 }

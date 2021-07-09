@@ -1,6 +1,6 @@
 package solution
 
-func lengthOfLongestSubstring(s string) int {
+func LengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}
 	n := len(s)
 
