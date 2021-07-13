@@ -8,7 +8,8 @@ import (
 func main() {
 	//list := []string{"haha", "xixi"}
 
-	ans := LengthOfLongestSubstring("aaaaawwbwexxx") 
+	test := []int{2,23,6,3,1,77,88}
+	ans := QuickSort(test)
 
 	fmt.Println(ans)
 }
