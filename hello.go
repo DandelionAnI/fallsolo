@@ -2,14 +2,22 @@ package main
 
 import (
 	"fmt"
-	."solution/solution"
+	"os"
+	//. "solution/solution"
 )
 
 func main() {
-	//list := []string{"haha", "xixi"}
+	num := os.Args[1]
+	topic := os.Args[2]
 
-	test := []int{2,23,6,3,1,77,88}
-	ans := QuickSort(test)
-
-	fmt.Println(ans)
+	f, err := os.Create("./solution/" + num + topic + ".go")
+	if err != nil {
+		fmt.Println(err.Error())
+	} else {
+		f.Write([]byte("package solution\n"))
+		f.Write([]byte("\n"))
+		f.Write([]byte("func " + topic + "() {\n"))
+		f.Write([]byte("}\n"))
+	}
+	defer f.Close()
 }
