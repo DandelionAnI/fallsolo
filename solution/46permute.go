@@ -1,5 +1,6 @@
 package solution
 
+//回溯 o(n*n!) on
 func permute(nums []int) [][]int {
 	n := len(nums)
 	ans := [][]int{}
