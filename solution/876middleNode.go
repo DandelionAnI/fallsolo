@@ -1,4 +1,5 @@
 package solution
+
 //快慢指针 ono1
 func middleNode(head *ListNode) *ListNode {
 	p1, p2 := head, head
