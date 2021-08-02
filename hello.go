@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	num := "92"
-	topic := "reverseBetween"
+	num := os.Args[1]
+	topic := os.Args[2]
 
 	f, err := os.Create("./solution/" + num + topic + ".go")
 	if err != nil {
