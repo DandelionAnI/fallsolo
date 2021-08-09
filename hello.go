@@ -24,6 +24,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -31,24 +32,26 @@ func main() {
 	//fmt.Scan(&a)
 	//fmt.Printf("%d\n", a)
 
-	nums := []int{1, 2, 2, 3, 3, 5, 5, 7}
-	sum := 0
-	for i := 0; i < len(nums); i++ {
-		sum ^= nums[i]
-	}
-	p := 0
-	fmt.Println(sum)
-	for (sum & (1 << p)) == 0 {
-		fmt.Println(p)
-		p++
-	}
-	nums1, nums2 := 0, 0
-	for i := 0; i < len(nums); i++ {
-		if (nums[i] & (1 << p)) != 0 {
-			nums1 ^= nums[i]
-		} else {
-			nums2 ^= nums[i]
+	a,b := []int{1,1,2,3,4,5,6,7,8,9},[]int{4,4,4,5,5,5,6,6,6,10}
+	// a, b := []int{1, 2, 3}, []int{1, 2, 3}
+	l, r := len(a)-1, len(b)-1
+	sort.Ints(a)
+	sort.Ints(b)
+	fmt.Println(a, b)
+	cnt := 0
+	for cnt <= 0 && l != -1 {
+		if a[l] > b[r] {
+			cnt++
+		}  else if a[l] < b[r] {
+			cnt--
 		}
+		l--
+		r--
 	}
-	fmt.Println(nums1, nums2)
+	if l == -1 && cnt <= 0 {
+		fmt.Println(-1)
+	} else {
+		ans := len(a) - l -1
+		fmt.Println(ans)
+	}
 }
