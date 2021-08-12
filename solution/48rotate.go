@@ -1,0 +1,18 @@
+package solution
+
+func rotate(matrix [][]int) {
+	n := len(matrix)
+	//对角线变换
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+		}
+	}
+	//竖直轴对称翻转
+	//把每一层的数组翻转
+	for i := 0; i < n; i++ {
+		for j := 0; j < n/2; j++ {
+			matrix[i][j], matrix[i][n-j-1] = matrix[i][n-j-1], matrix[i][j]
+		}
+	}
+}
