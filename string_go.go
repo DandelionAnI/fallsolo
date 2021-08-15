@@ -51,6 +51,7 @@ func string_go() {
 	fmt.Println(" Repeat 函数的用法")
 	fmt.Println("ba" + strings.Repeat("na", 2)) //banana
 
+	//返回将s中前n个不重叠old子串都替换为new的新字符串，如果n<0会替换所有old子串。
 	fmt.Println("")
 	fmt.Println(" Replace 函数的用法")
 	fmt.Println(strings.Replace("oink oink oink", "k", "ky", 2))
