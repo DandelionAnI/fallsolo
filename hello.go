@@ -24,31 +24,70 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
 	//a := 0
 	//fmt.Scan(&a)
 	//fmt.Printf("%d\n", a)
+	fmt.Println("true")
+}
 
-	nums := []int{1, 2, 2, 3, 3, 5, 5, 7}
-	sum := 0
-	for i := 0; i < len(nums); i++ {
-		sum ^= nums[i]
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func formatList(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
 	}
-	p := 0
-	fmt.Println(sum)
-	for (sum & (1 << p)) == 0 {
-		fmt.Println(p)
-		p++
+	if head.Next == nil {
+		return head
 	}
-	nums1, nums2 := 0, 0
-	for i := 0; i < len(nums); i++ {
-		if (nums[i] & (1 << p)) != 0 {
-			nums1 ^= nums[i]
-		} else {
-			nums2 ^= nums[i]
+	p1, cur := head.Next, head
+	pre := &ListNode{Val: 0, Next: cur}
+	for p1 != nil && p1.Next != nil {
+		cur = cur.Next
+		p1 = p1.Next
+		cur.Next = p1.Next
+
+		p1.Next = pre.Next
+		pre.Next = p1
+		p1 = cur.Next
+	}
+	if p1 != nil {
+		cur.Next = p1
+		cur = cur.Next
+	}
+	return pre.Next
+}
+func ans(array []int, k int) int64 {
+	n := len(array)
+	var cnt int64
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			if array[i]+array[j] <= k {
+				cnt++
+			}
 		}
 	}
-	fmt.Println(nums1, nums2)
+	return cnt
+}
+
+func ans1(array []int, k int) int64 {
+	n := len(array)
+	var cnt int64
+	sort.Ints(array)
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			if array[i]+array[j] <= k {
+				cnt++
+			} else {
+				break
+			}
+		}
+	}
+	return cnt
 }

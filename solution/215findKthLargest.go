@@ -1,7 +1,8 @@
 package solution
 
 //堆 onlogn ologn
-//建堆的时间代价是O(n)，删除的总代价是O(klogn)，因为k<n，故渐进时间复杂为 O(n+klogn)=O(nlogn)
+//建堆的时间代价是O(n)，删除的总代价是O(klogn)，
+//因为k<n，故渐进时间复杂为 O(n+klogn)=O(nlogn)
 func findKthLargest(nums []int, k int) int {
 	heapSize := len(nums)
 	buildMaxHeap(nums, heapSize)
