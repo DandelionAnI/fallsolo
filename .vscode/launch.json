@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Solo",
+            "request": "launch",
+            "mainClass": "Solo",
+            "projectName": "fallsolo_5322910c"
+        },
+        {
             "name": "Attach to Process",
             "type": "go",
             "request": "attach",

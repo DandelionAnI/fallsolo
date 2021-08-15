@@ -3,55 +3,24 @@ import java.util.Comparator;
 
 public class Solo {
 
-    public int maxEnvelopes(int[][] envelopes) {
-//         int n = a.length;
-//         int sum = 0;
-//         for (int i=0; i<n ;i++) {
-//             sum += a[i];
-//         }
-//         int target = sum/2;
-    
-//     int ans = sum;
-//     int l=0,r=0;
-//     int cur =0;
-//     while (r<n) {
-//         cur += a[r];
-//         if (cur >= target) {
-//             ans = Math.min(ans,Math.abs(cur-(sum-cur)));
-//             while (l<r && cur > target) {
-//                 cur -= a[l];
-//                 l++;
-//                 ans = Math.min(ans, Math.abs(cur - (sum-cur)));
-//             }
-//             if (ans == target) {
-//                 return ans;
-//             }
-//         }
-//         r++;
-//     }
-//     return ans;
-// }
-}
-
-    public int maxEnvelopes(int[] array, int k) {
-        Arrays.sort(arr);
-        int res = 0;
-        for (int i=0; i< array.length;i++) {
-            int r = k-array[i];
-            if (r< array[i]) {
-                break;
-            }
-            int pos = Arrays.binarySearch(array,r);
-
-            if(pos >= 0) {
-                while(pos+1<array.length && array[pos+1] == array[pos]) {
-                    pos++;
+    public static void main(String[] args) {
+            int[] arr =new int[]{1,1,2,3,4,5,6,7,8,9};
+            int[] arr1 = new int[]{4,4,4,5,5,5,6,7,7,10};
+            Arrays.sort(arr);
+            Arrays.sort(arr1);
+            int res = 0;
+            int p = arr.length-1;
+            while (res <= 0 && p != -1) {
+                if (arr[p] > arr1[p]) {
+                    res++;
+                }  else if (arr[p] < arr1[p]) {
+                    res--;
                 }
-                res += Math.max(0, pos-i);
-            } else {
-                int rr = Math.min(array.length-1,-pos-1);
-                res += Math.max(0,rr-i);
+                p--;
             }
-        }
-        return res;
+            if (p == -1 && res<=0) {
+                System.out.println(-1);
+            }
+            System.out.println(arr.length-p-1);
     }
+}
