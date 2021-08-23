@@ -1,5 +1,0 @@
-package solution
-
-func test() {
-
-}
