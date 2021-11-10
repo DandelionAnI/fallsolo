@@ -64,4 +64,10 @@ func string_go() {
 	fmt.Printf("%q\n", strings.Split(" xyz ", ""))
 	fmt.Printf("%q\n", strings.Split("", "Bernardo O'Higgins"))
 
+	//复制一个数组
+	num := []int{}
+	nums1 := make([]int, len(num))
+	copy(nums1, num)
+
+
 }
